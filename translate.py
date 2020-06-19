@@ -3,6 +3,7 @@ import os, requests, uuid, json
 # Don't forget to replace with your Cog Services subscription key!
 # If you prefer to use environment variables, see Extra Credit for more info.
 subscription_key = 'YOUR_TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
+subscription_region = 'YOUR_TRANSLATOR_REGION'
 
 # Our Flask route will supply two arguments: text_input and language_output.
 # When the translate text button is pressed in our Flask app, the Ajax request
@@ -16,6 +17,7 @@ def get_translation(text_input, language_output):
 
     headers = {
         'Ocp-Apim-Subscription-Key': subscription_key,
+        'Ocp-Apim-Subscription-Region':subscription_region,
         'Content-type': 'application/json',
         'X-ClientTraceId': str(uuid.uuid4())
     }
